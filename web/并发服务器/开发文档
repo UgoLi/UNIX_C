@@ -1,0 +1,25 @@
+一、写一个头文件用于web服务器的实现
+web.h 
+
+二、调试版本的web服务器
+主体 webserver.c 
+封装web相关的函数 web.c
+服务器器端监听：t_listen
+doit:将客户端请求输出到显示器
+
+三、在doit里解析浏览器发送的信息
+编写http.conf配置服务器信息，格式如下：
+    - port 8080
+    - workdir /www/var/
+
+
+
+
+
+
+
+
+
+
+
+

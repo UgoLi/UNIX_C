@@ -1,0 +1,179 @@
+今天内容：
+一、malloc(3)的实现原理（缓冲机制）
+malloc(3)封装了mmap(2)
+封装 在函数A的实现中调用了函数B，函数B在函数A的代码中其主要作用，这样就称函数A封装了函数B。
+
+mmap(2)每次最少分配33页内存，即132k。若不够，则再次调用mmap函数。
+
+举例说明  malloc的缓冲机制
+代码参见 malloc.c
+
+二、文件操作（系统调用）
+标c函数库  fopen、fclose、fread、fwrite、fseek、fscanf...
+
+系统调用 open（2）、close（2）、read（2）、\
+        write（2）、lseek（2）
+open(2)
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+int open(const char *pathname, int flags);
+int open(const char *pathname, int flags, mode_t mode);
+int open(const char *pathname, int flags,...);
+功能：打开或者创建一个文件
+参数：
+pathname:指定要打开文件的路径
+flags:
+...   可变参数
+access modes：必须包含其中之一
+O_RDONLY, O_WRONLY 或 O_RDWR
+file creation flags:
+O_CREAT：如果文件不存在，创建文件。
+O_EXCL：如果和O_CREAT一起指定了，如果文件存在，创建文件失败
+O_NOCTTY：
+O_TRUNC：创建文件的时候，如果文件存在将文件内容截断为0.
+O_APPEND:追加方式打开
+mode：指定了新创建的文件权限
+有效的权限为(mode &~umask)
+返回值：
+返回新的文件描述符
+-1  失败  errno设置
+
+补充：
+1、可变参数 ...
+2、文件描述符
+是整数。当前进程没有使用的最小的非负整数。
+每个进程都有自己的pid。每个进程也有自己的户口页。专业术语-->进程控制块（PCB）。在进程中每次打开一个文件，都会在进程控制块中做记录。
+PCB 一般用结构体表示
+
+
+文件描述符是存放文件对象的数组的对象。
+
+3、文件描述符0、1、2代表什么？
+-->bash继承
+标准输入 0 键盘    STDIN_FILENO
+标准输出 1 显示器  STDOUT_FILENO
+标准错误输出 2 显示器 STDERR_FILENO
+
+4、权限的问题
+-rwxrw-rw- 1 ugo ugo  594 7月   6 20:52 r_file.c
+
+rwxrw-rw-
+r：读
+w：写
+x：可执行
+最前面 rwx：指定了文件所有者的权限  u
+中间的 rw-：指定了组成员的权限      g
+最后的 r--：指定了其他人的权限      o
+a 所有人
+chmod  u(g\o\a) +|- r|w|x  文件名
+八进制数字表示权限   0664 rw-rw-r--
+
+创建一个普通文件的和时候，默认的权限是rw-rw-rw-
+umask是权限掩码。权限的掩码就是把文件的权限拿走。
+命令umask查看当前系统掩码
+day0702-Uc$:umask 
+0002      -------w-      
+
+umask + 数字  设置掩码
+
+close（2）
+#include <unistd.h>
+int close(int fd);
+功能：关闭文件描述符
+参数：
+fd： open(2)的返回值
+返回值：
+-1 错误 errno被设置
+0  成功
+
+举例说明  以只读的方式打开文件
+代码参见r_file.c
+以写的方式打开文件。如果文件不存在创建文件，指定文件的权限为0666。如过文件存在则报错
+代码参见w_file.c
+
+read(2)/write(2)
+#include <unistd.h>
+ssize_t read(int fd, void *buf, size_t count);
+功能：从文件中读取数据 
+参数：
+fd：指定文件的描述符。从这个文件读取数据。
+buff：用来存储读出数据的地址
+count：申请的要读取的字节数
+返回值：
+返回读取到的数据的字节数。0 代表文件的末尾。
+错误 -1 errno被设置。
+注：读和写都是阻塞操作。
+ 
+#include <unistd.h>
+ssize_t write(int fd, const void *buf, size_t count);
+功能：往文件里写数据
+参数：
+fd：指定文件
+buff：存放要写入到文件的数据存放地址
+count：向系统申请要写入文件的字节数
+返回值：
+成功  实际写入文件的字节数
+错误： -1 errno被设置
+
+cat filename
+编写代码实现cat命名的功能。编译生成可执行文件mycat。
+mycat filebame========cat filename
+代码参见 mycat.c
+
+作业：
+编写代码实现文件的复制。
+cp  源文件  目标文件
+将自己的代码编译生成可执行文件  mycp。
+mycp 源文件 目标文件
+
+lseek(2)
+#include <sys/types.h>
+#include <unistd.h>
+off_t lseek(int fd, off_t offset, int whence);
+功能：重定位读写的位置
+参数：
+fd：指定了文件
+offset：偏移位置
+whence：
+SEEK_SET：文件的开始位置
+SEEK_CUR：文件的当前位置
+SEEK_END：文件的末尾位置
+返回值：
+-1 错误 errno被设置
+当前位置相对于文件开头的字节数。
+
+举例说明 lseek(2)的使用
+代码参见lseek.c
+
+补充：
+day0702-Uc$:od -tx1 -tc hello 
+0000000  68  65  6c  6c  6f  e5  93  a6  0a
+            h   e   l   l   o 345 223 246  \n
+0000011
+
+hallo
+1、读取出文件内容存储到buff中
+2、在buff中修改文件的内容
+3、将文件读写的位置定位到文件的头部
+4、将修改后的数据写入文件
+
+三、使用mmap(2)将文件映射到进程的虚拟地址空间。
+编写代码将文件映射到进程的虚拟地址空间。在虚拟地址空间修改空间里的数据，直接反应到文件。
+代码参见map_file.c
+
+总结：
+一、malloc的实现原理（缓冲机制）
+二、文件的操作 系统调用
+open(2)  close(2)  read(2)  write(2)  lseek(2)
+文件描述符  
+权限的问题  权限掩码
+三、使用mmap将文件映射到进程的虚拟地址空间。
+将物理地址映射到进程的虚拟地址空间。
+mmap的使用全了。
+
+
+
+
+
+

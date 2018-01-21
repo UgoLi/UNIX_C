@@ -1,0 +1,1625 @@
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+GET /pic17.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic17.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic17.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic17.jpg' 不存在...
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+GET /pic1.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic1.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic1.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic1.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic1.jpg
+发送字节数:3209
+=======================================end=================================================
+
+
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+GET /pic2.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic2.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic2.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic2.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic2.jpg
+发送字节数:4163
+=======================================end=================================================
+
+
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+GET /pic3.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic3.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic3.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic3.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic3.jpg
+发送字节数:9072
+=======================================end=================================================
+
+
+GET /pic4.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic4.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic4.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic4.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic4.jpg
+发送字节数:6381
+=======================================end=================================================
+
+
+GET /pic5.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic5.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic5.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic5.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic5.jpg
+发送字节数:5264
+=======================================end=================================================
+
+
+GET /pic6.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic6.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic6.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic6.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic6.jpg
+发送字节数:5127
+=======================================end=================================================
+
+
+GET /pic7.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic7.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic7.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic7.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic7.jpg
+发送字节数:5110
+=======================================end=================================================
+
+
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+GET /pic8.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic8.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic8.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic8.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic8.jpg
+发送字节数:7553
+=======================================end=================================================
+
+
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+GET /pic11.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic11.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic11.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic11.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic11.jpg
+GET /pic10.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic10.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic10.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic10.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic10.jpg
+发送字节数:4891
+=======================================end=================================================
+
+
+GET /pic9.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic9.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic9.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic9.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic9.jpg
+GET /pic12.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic12.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic12.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic12.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic12.jpg
+发送字节数:8781
+=======================================end=================================================
+
+
+发送字节数:2712
+=======================================end=================================================
+
+
+GET /pic13.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic13.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic13.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic13.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic13.jpg
+发送字节数:3227
+=======================================end=================================================
+
+
+发送字节数:3323
+=======================================end=================================================
+
+
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+GET /pic14.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic14.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic14.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic14.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic14.jpg
+发送字节数:5152
+=======================================end=================================================
+
+
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+GET /pic16.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic16.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic16.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic16.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic16.jpg
+发送字节数:2925
+=======================================end=================================================
+
+
+GET /pic15.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic15.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic15.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic15.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic15.jpg
+发送字节数:3776
+=======================================end=================================================
+
+
+GET /pic18.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic18.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic18.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic18.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic18.jpg
+发送字节数:5058
+=======================================end=================================================
+
+
+GET /pic19.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic19.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic19.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic19.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic19.jpg
+发送字节数:111990
+=======================================end=================================================
+
+
+GET /pic20.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic20.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic20.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic20.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic20.jpg
+发送字节数:5042
+=======================================end=================================================
+
+
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+
+时间: Thu Aug 17 18:19:15 2017
+ IP: 176.3.12.150
+===================================receive=================================================
+GET /pic21.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic21.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic21.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic21.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic21.jpg
+发送字节数:6438
+=======================================end=================================================
+
+
+GET /pic22.jpg HTTP/1.1
+Host: 176.3.12.150:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://176.3.12.150:8000/picture.html
+Connection: keep-alive
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /pic22.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/var/pic22.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/var/pic22.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/var/pic22.jpg
+发送字节数:31804
+=======================================end=================================================
+
+
+***********************************analysis************************************************
+ ? 
+/home/ugo/Desktop/Tedu_old/web/var?
+文件 '/home/ugo/Desktop/Tedu_old/web/var?' 不存在...
+
+**********************************do_response*********************************************
+
+时间: Tue Aug 22 09:41:27 2017
+ IP: 127.0.0.1
+===================================receive=================================================
+GET / HTTP/1.1
+Host: 127.0.0.1:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+***********************************analysis************************************************
+GET / HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/index.html
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/index.html' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/index.html
+发送字节数:143
+=======================================end=================================================
+
+
+
+时间: Tue Aug 22 09:41:27 2017
+ IP: 127.0.0.1
+===================================receive=================================================
+GET /pic19.jpg HTTP/1.1
+Host: 127.0.0.1:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://127.0.0.1:8080/
+Connection: keep-alive
+
+***********************************analysis************************************************
+GET /pic19.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/pic19.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/pic19.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/pic19.jpg
+发送字节数:111990
+=======================================end=================================================
+
+
+
+时间: Tue Aug 22 09:41:28 2017
+ IP: 127.0.0.1
+===================================receive=================================================
+GET /favicon.ico HTTP/1.1
+Host: 127.0.0.1:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+***********************************analysis************************************************
+GET /favicon.ico HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/favicon.ico
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/favicon.ico' 不存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+
+时间: Tue Aug 22 09:41:28 2017
+ IP: 127.0.0.1
+===================================receive=================================================
+GET /favicon.ico HTTP/1.1
+Host: 127.0.0.1:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+***********************************analysis************************************************
+GET /favicon.ico HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/favicon.ico
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/favicon.ico' 不存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:23:33 2017
+ IP: 176.3.12.204
+===================================receive=================================================
+GET /1.tar HTTP/1.1
+Host: 176.3.12.205:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+
+***********************************analysis************************************************
+GET /1.tar HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar' 不存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:23:36 2017
+ IP: 176.3.12.204
+===================================receive=================================================
+GET /favicon.ico HTTP/1.1
+Host: 176.3.12.205:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+Accept: */*
+Referer: http://176.3.12.205:8080/1.tar
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+
+***********************************analysis************************************************
+GET /favicon.ico HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/favicon.ico
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/favicon.ico' 不存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:23:40 2017
+ IP: 176.3.12.204
+
+时间: Wed Aug 23 18:23:40 2017
+ IP: 176.3.12.204
+===================================receive=================================================
+===================================receive=================================================
+
+时间: Wed Aug 23 18:23:40 2017
+ IP: 176.3.12.204
+GET /1.tar.gz HTTP/1.1
+Host: 176.3.12.205:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+
+***********************************analysis************************************************
+GET /1.tar.gz HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+
+时间: Wed Aug 23 18:23:40 2017
+ IP: 176.3.12.204
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+===================================receive=================================================
+===================================receive=================================================
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:165881
+=======================================end=================================================
+
+
+***********************************analysis************************************************
+***********************************analysis************************************************
+ z 
+/home/ugo/Desktop/Tedu_old/web/并发服务器/varz
+ z 
+/home/ugo/Desktop/Tedu_old/web/并发服务器/varz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/varz' 不存在...
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/varz' 不存在...
+
+**********************************do_response*********************************************
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+=======================================end=================================================
+
+
+***********************************analysis************************************************
+ z 
+/home/ugo/Desktop/Tedu_old/web/并发服务器/varz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/varz' 不存在...
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:24:09 2017
+ IP: 176.3.12.204
+===================================receive=================================================
+
+时间: Wed Aug 23 18:24:09 2017
+ IP: 176.3.12.204
+
+时间: Wed Aug 23 18:24:09 2017
+ IP: 176.3.12.204
+===================================receive=================================================
+===================================receive=================================================
+GET /1.tar.gz HTTP/1.1
+Host: 176.3.12.205:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+
+***********************************analysis************************************************
+GET /1.tar.gz HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:165881
+=======================================end=================================================
+
+
+***********************************analysis************************************************
+***********************************analysis************************************************
+ z 
+ z 
+/home/ugo/Desktop/Tedu_old/web/并发服务器/varz
+/home/ugo/Desktop/Tedu_old/web/并发服务器/varz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/varz' 不存在...
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/varz' 不存在...
+
+**********************************do_response*********************************************
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:24:46 2017
+ IP: 176.3.12.204
+===================================receive=================================================
+
+时间: Wed Aug 23 18:24:46 2017
+ IP: 176.3.12.204
+GET /1.tar.gz HTTP/1.1
+Host: 176.3.12.205:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+
+***********************************analysis************************************************
+GET /1.tar.gz HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+发送字节数:1048576
+===================================receive=================================================
+发送字节数:1048576
+发送字节数:165881
+=======================================end=================================================
+
+
+***********************************analysis************************************************
+ z 
+/home/ugo/Desktop/Tedu_old/web/并发服务器/varz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/varz' 不存在...
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:26:57 2017
+ IP: 176.3.12.179
+
+时间: Wed Aug 23 18:26:57 2017
+ IP: 176.3.12.179
+===================================receive=================================================
+===================================receive=================================================
+
+时间: Wed Aug 23 18:26:57 2017
+ IP: 176.3.12.179
+
+时间: Wed Aug 23 18:26:57 2017
+ IP: 176.3.12.179
+===================================receive=================================================
+===================================receive=================================================
+GET /1.tar.gz HTTP/1.1
+Host: 176.3.12.205:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+
+***********************************analysis************************************************
+GET /1.tar.gz HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:165881
+=======================================end=================================================
+
+
+***********************************analysis************************************************
+***********************************analysis************************************************
+ w 
+ w 
+/home/ugo/Desktop/Tedu_old/web/并发服务器/varw
+/home/ugo/Desktop/Tedu_old/web/并发服务器/varw
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/varw' 不存在...
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/varw' 不存在...
+
+**********************************do_response*********************************************
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:27:14 2017
+ IP: 176.3.12.179
+
+时间: Wed Aug 23 18:27:14 2017
+ IP: 176.3.12.179
+===================================receive=================================================
+===================================receive=================================================
+GET /1.tar.gz HTTP/1.1
+Host: 176.3.12.205:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+
+***********************************analysis************************************************
+GET /1.tar.gz HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:165881
+=======================================end=================================================
+
+
+***********************************analysis************************************************
+***********************************analysis************************************************
+ w 
+ w 
+/home/ugo/Desktop/Tedu_old/web/并发服务器/varw
+/home/ugo/Desktop/Tedu_old/web/并发服务器/varw
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/varw' 不存在...
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/varw' 不存在...
+
+**********************************do_response*********************************************
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:27:54 2017
+ IP: 176.3.12.204
+===================================receive=================================================
+GET /1.tar.gz HTTP/1.1
+Host: 176.3.12.205:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+
+***********************************analysis************************************************
+GET /1.tar.gz HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+发送字节数:1048576
+发送字节数:1048576
+
+时间: Wed Aug 23 18:27:57 2017
+ IP: 176.3.12.204
+===================================receive=================================================
+GET /1.tar.gz HTTP/1.1
+Host: 176.3.12.205:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+
+***********************************analysis************************************************
+GET /1.tar.gz HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:165881
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:28:17 2017
+ IP: 176.3.12.179
+
+时间: Wed Aug 23 18:28:17 2017
+ IP: 176.3.12.179
+
+时间: Wed Aug 23 18:28:17 2017
+ IP: 176.3.12.179
+===================================receive=================================================
+===================================receive=================================================
+===================================receive=================================================
+GET /1.tar.gz HTTP/1.1
+Host: 176.3.12.205:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+
+***********************************analysis************************************************
+GET /1.tar.gz HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:165881
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:28:24 2017
+ IP: 176.3.12.204
+===================================receive=================================================
+GET /1.tar HTTP/1.1
+Host: 176.3.12.205:8080
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+
+***********************************analysis************************************************
+GET /1.tar HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar' 不存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+***********************************analysis************************************************
+ w 
+/home/ugo/Desktop/Tedu_old/web/并发服务器/varw
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/varw' 不存在...
+
+**********************************do_response*********************************************
+
+时间: Wed Aug 23 18:28:34 2017
+ IP: 176.3.12.204
+===================================receive=================================================
+GET /1.tar.gz HTTP/1.1
+Host: 176.3.12.205:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+
+***********************************analysis************************************************
+GET /1.tar.gz HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+发送字节数:1048576
+发送字节数:1048576
+
+时间: Wed Aug 23 18:28:35 2017
+ IP: 176.3.12.204
+===================================receive=================================================
+GET /1.tar.gz HTTP/1.1
+Host: 176.3.12.205:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+
+***********************************analysis************************************************
+GET /1.tar.gz HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:165881
+=======================================end=================================================
+
+
+***********************************analysis************************************************
+ w 
+/home/ugo/Desktop/Tedu_old/web/并发服务器/varw
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/varw' 不存在...
+
+**********************************do_response*********************************************
+
+时间: Wed Aug 23 18:32:07 2017
+ IP: 176.3.12.191
+===================================receive=================================================
+***********************************analysis************************************************
+ w 
+/home/ugo/Desktop/Tedu_old/web/并发服务器/varw
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/varw' 不存在...
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:32:25 2017
+ IP: 176.3.12.189
+===================================receive=================================================
+GET /1.tar.gz HTTP/1.1
+Host: 176.3.12.205:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:23.0) Gecko/20100101 Firefox/23.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+***********************************analysis************************************************
+GET /1.tar.gz HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+发送字节数:1048576
+发送字节数:1048576
+
+时间: Wed Aug 23 18:32:25 2017
+ IP: 176.3.12.191
+===================================receive=================================================
+GET /1.tar.gz HTTP/1.1
+Host: 176.3.12.205:8080
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+***********************************analysis************************************************
+GET /1.tar.gz HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+
+时间: Wed Aug 23 18:32:25 2017
+ IP: 176.3.12.191
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+发送字节数:1048576
+===================================receive=================================================
+发送字节数:1048576
+发送字节数:165881
+=======================================end=================================================
+
+
+发送字节数:165881
+=======================================end=================================================
+
+
+***********************************analysis************************************************
+ w 
+/home/ugo/Desktop/Tedu_old/web/并发服务器/varw
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/varw' 不存在...
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:35:30 2017
+ IP: 176.3.12.201
+===================================receive=================================================
+GET /1.tar.gz HTTP/1.1
+Host: 176.3.12.205:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+
+***********************************analysis************************************************
+GET /1.tar.gz HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:165881
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:35:33 2017
+ IP: 176.3.12.201
+===================================receive=================================================
+***********************************analysis************************************************
+ w 
+/home/ugo/Desktop/Tedu_old/web/并发服务器/varw
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/varw' 不存在...
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:37:54 2017
+ IP: 176.3.12.201
+===================================receive=================================================
+GET /1.tar.gz HTTP/1.1
+Host: 176.3.12.205:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+***********************************analysis************************************************
+GET /1.tar.gz HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.tar.gz
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:165881
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:42:06 2017
+ IP: 127.0.0.1
+===================================receive=================================================
+GET /zhuomian.jpg HTTP/1.1
+Host: 127.0.0.1:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+***********************************analysis************************************************
+GET /zhuomian.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/zhuomian.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/zhuomian.jpg' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/zhuomian.jpg
+发送字节数:1048576
+发送字节数:24177
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:42:16 2017
+ IP: 127.0.0.1
+===================================receive=================================================
+GET /favicon.ico HTTP/1.1
+Host: 127.0.0.1:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+***********************************analysis************************************************
+GET /favicon.ico HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/favicon.ico
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/favicon.ico' 不存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:43:45 2017
+ IP: 127.0.0.1
+===================================receive=================================================
+GET /zhuomian.jpg HTTP/1.1
+Host: 127.0.0.1:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Cache-Control: max-age=0
+
+***********************************analysis************************************************
+GET /zhuomian.jpg HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/zhuomian.jpg
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/zhuomian.jpg' 存在...
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:image/jpg
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/zhuomian.jpg
+发送字节数:1048576
+发送字节数:24177
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:47:00 2017
+ IP: 127.0.0.1
+===================================receive=================================================
+GET /1.mp3 HTTP/1.1
+Host: 127.0.0.1:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+***********************************analysis************************************************
+GET /1.mp3 HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.mp3
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.mp3' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.mp3
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+
+时间: Wed Aug 23 18:47:01 2017
+ IP: 127.0.0.1
+===================================receive=================================================
+GET /favicon.ico HTTP/1.1
+Host: 127.0.0.1:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+***********************************analysis************************************************
+GET /favicon.ico HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/favicon.ico
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/favicon.ico' 不存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:583666
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:47:40 2017
+ IP: 176.3.12.189
+===================================receive=================================================
+GET /1.mp3 HTTP/1.1
+Host: 176.3.12.205:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:23.0) Gecko/20100101 Firefox/23.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+***********************************analysis************************************************
+GET /1.mp3 HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.mp3
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.mp3' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.mp3
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:583666
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:47:53 2017
+ IP: 176.3.12.189
+===================================receive=================================================
+GET /favicon.ico HTTP/1.1
+Host: 176.3.12.205:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:23.0) Gecko/20100101 Firefox/23.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+***********************************analysis************************************************
+GET /favicon.ico HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/favicon.ico
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/favicon.ico' 不存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+=======================================end=================================================
+
+
+
+时间: Wed Aug 23 18:47:54 2017
+ IP: 176.3.12.189
+===================================receive=================================================
+GET /1.mp3 HTTP/1.1
+Host: 176.3.12.205:8080
+Connection: close
+icy-metadata: 1
+transferMode.dlna.org: Streaming
+Referer: http://176.3.12.205:8080/1.mp3
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:23.0) Gecko/20100101 Firefox/23.0
+
+***********************************analysis************************************************
+GET /1.mp3 HTTP/1.1
+/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.mp3
+文件 '/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.mp3' 存在...
+未找到对应文件类型
+
+**********************************do_response*********************************************
+HTTP/1.1 200
+Contet-Type:text/html
+
+发送文件:/home/ugo/Desktop/Tedu_old/web/并发服务器/var/1.mp3
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576
+发送字节数:1048576

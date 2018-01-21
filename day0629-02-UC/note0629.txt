@@ -1,0 +1,172 @@
+昨天内容回忆：
+一、计算机系统架构
+二、操作系统
+操作系统 管理 计算机资源
+三、计算机语言的发展史
+预处理、编译、汇编、链接
+四、大型软件的代码组织
+头文件 具体代码实现文件 源文件
+编译的基本单位是源文件
+链接
+nm 命令使用
+静态链接   动态链接后面课讲解
+
+今天的内容
+一、复习C语言 指针
+int p;
+int *p;
+int **p;
+int *p[3];
+int (*p)[3];
+int *func(int ,int );
+int (*func)(int,int);
+int (*func[3])(int ,int );
+
+常量和变量
+不管常量还是变量都占用内存空间，常量占用的内存空间只能读。
+变量占用的内存空间可以修改。
+
+如何去访问常量和变量空间的内容？
+根据变量或者常量的名字找到地址，然后根据数据类型访问地址空间的内容。
+
+什么是数据类型？
+字节 数据 排序
+-->访问地址空间的方式，称为数据类型
+
+int
+char
+short
+float
+double
+* 指针类型
+指针是类型  地址是指针的实例。
+
+int *p;  p指针变量
+代码参见
+
+编译器参数：
+-Wall    将编译中所有警告显示出来
+-Werror  将编译中所有的警告和错误都当错误显示出来
+
+int arr[3];
+arr是数组的名字，数组是一种数据类型。
+数组有三个元素，每个元素都是int类型。
+数组的地址空间，是一片连续的地址空间。
+
+char arr[3];
+
+int *arr[3];
+arr是数组的名字，数组中的每个元素都是*类型的;
+指针数组
+int arr[2][3];
+
+arr是数组名，有两个元素，每个元素都是int[3]类型的一维数组
+int[3]成为一种数据类型
+int(*p)[3];
+p是什么？
+p指针类型变量。访问方式int[3];
+数组指针;
+
+char *p[3];
+代码验证：指针和数组
+
+void *malloc(size_t size);
+malloc是函数的名字
+这个函数的返回值是地址。也就是指针类型的
+只是返回一个地址，同用地址。void就是通用的意思。
+
+void (*func)(int ,int );
+func指针类型的变量。不是函数的名字。
+
+void (*fun[4])(int ,int );
+func是数组的名字数组有四个元素每个元素是指针类型的。指针的访问方式是void(int,int)-->无返回值的
+两个int形参的函数;
+
+什么是指针类型的变量，访问是什么？
+
+举例说明  指针和函数的综合使用，代码参见 tmath
+
+回调函数
+
+
+补充：
+字节序的问题
+高位字节放在低地址中，称为大端。
+高位字节放在高地址中，称为小端。
+一般，主机字节序是小端。网络字节序是大端。（必须环境测试）
+
+作业：测试自己的主机字节序。
+
+
+
+
+
+二、使用typedef为类型定义别名
+使用typedef为类型定义别名，三步曲：
+1、定义变量   int count_t;
+
+2、在第一步前面加上typedef关键字，变量变为类型的别名。
+typedef int count_t;
+count_t就是int 类型的别名
+
+3、使用类型的别名定义变量。
+count_t c;
+c实际上就是int类型变量
+
+为什么使用typedef定义变量别名？
+程序的可读性。
+
+typedef unsignes short uint16_t;
+uint16_t y;   y无符号短整形
+
+typedef char *str_t;
+str_t str1,str2;
+char *str1,*str2;
+
+typedef int arr[3];
+arr 类型的别名  int[3]
+arr a; a是什么？ a是数组的名字;
+arr b[2];   b数组里有两个元素，每个元素都是arr类型（二维数组）
+
+typedef int (*func_t)(int,int);
+func_t是数据类型的别名   指针类型的别名。
+
+typedef int tadd(int ,int);
+tadd就是int(int,int)函数的类型。
+tadd *func;
+
+typedef struct node{
+    int data;
+    struct node *next;
+}node_t;
+typedef node_t *node_p;
+node_p head;
+typedef node_t *list;
+list *head;
+
+例题，
+char arr[12];
+char *p;
+
+sizeof(p)=4;
+sizeof(arr)=12;
+
+
+三、GDB调试器的使用
+在代码编译的时候，加上参数-g或者-ggdb。
+加上这个参数之后，生成的可执行文件是带有调试信息的文件
+使用调试器调试，文件必须有调试信息，否则不能调试
+
+指令：
+    l list 列出程序清单(较少用到)
+    b 行号|函数名 设置断点
+    r run有运行程序
+    p 变量的名字 输出变量的内容
+    n next下一行|条
+    s step 一步一步
+    q quit 退出调试
+
+总结：
+一、复习c语言的指针
+二、使用typedef为类型命名别名
+三、GDB调试器的使用

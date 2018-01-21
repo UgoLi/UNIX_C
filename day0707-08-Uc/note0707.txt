@@ -1,0 +1,242 @@
+昨天的内容：
+一、文件锁
+fcntl（2）
+
+二、库函数和系统调用的关系。
+缓冲文件和非缓冲文件
+
+三、文件操作的杂项
+access
+getcwd
+chdir
+
+四、进程的基础
+进程的基础间的关系    父子  兄弟
+每个进程否有自己的pid 和 PCB。
+在PCB中记录了进程对资源的使用情况。
+1、创建子进程
+2、进程的退出
+孤儿进程
+
+
+
+今天内容：
+一、进程的退出（续）
+on_exit(3)
+#include <stdlib.h>
+int on_exit(void (*function)(int , void *), void *arg)
+功能：注册一个函数，在进程正常终止的时候调用
+参数：
+function：要注册的函数的名字
+arg：注册的函数的第二个参数
+返回值：
+0   成功
+非0 代表错误
+
+举例说明  使用on_exit(3)向进程注册一个函数，在进程正常推出的时候，调用这个函数。代码参见，on_exit.c
+
+_exit(2)
+#include <unistd.h>
+void _exit(int status);
+功能：终止nt execv(const char *path, char *const argv[]);当前进程。关nt execvp(const cha0r *file, char *const argv[]);闭文件描述符nt execvpe(const char *file, char *const argv[],)，将子进程过继给1号进程
+，给父进程发送一ar *const envp[]);SIGCHLD信号
+参数：
+status：进程的退出状态，返回给父进程
+返回值：
+函数不返回。
+
+vfork
+
+
+二、进程资源的回收
+进程退出以后，在内核中关于进程描述符使用到的空间并没有回收。
+在进程退出以后需要回收进程的资源。
+使用wait(2)家族函数，在子进程退出以后，回收子进程的资源。
+
+如果子进程退出，但父进程还没有来回收子进程的资源，那么这时候，子进程处于僵尸状态。称这种进程为僵尸进程。
+
+举例说明  僵尸进程。代码参见 zombie.c
+
+父进程回收子进程的资源。
+#include <sys/types.h>
+#include <sys/wait.h>
+pid_t wait(int *status);
+功能：阻塞等待回收子进程的资源
+参数：
+status：进程的状态信息，用下面的宏检测这个状态
+
+WIFEXITED(status)      如果子进程正常终止，返回真。
+WEXITSTATUS(status)    只有在上面的宏为真的情况下。才能使用这个宏，检测子进程的退出状态码。
+WIFSIGNALED(status)    如果子进程被信号终止，返回真。
+WTERMSIG(status)       只有在上面的宏为真的情况下。才能使用这个宏。检测被哪个信号中断。
+
+返回值：
+错误  -1
+返回终止的子进程的id
+
+举例说明  使用wait(2)，回收子进程的资源，代码参见wait.c
+
+补充：如何给指定的进程发送一个信号。
+kill -信号编号  pid
+
+pid_t waitpid(pid_t pid, int *status, int options);
+功能：回收子进程的资源。这个函数可以指定为阻塞和非阻塞。
+还可以指定某个特定的子进程。
+参数：
+pid:
+    <-1:pid的绝对值是个正数。这个绝对值是一个进程组的组id
+    等待的是属于这个进程组的任意子进程。
+    -1:等待任意子进程
+    0: 等待同组的子进程退出 
+    >0:指定了要等待的子进程的pid
+status:同wait(2)中的参数
+options:
+    0       阻塞等待
+    WNOHANG 如果没有子进程退出，立即返回。非阻塞。
+返回值：
+
+补充：
+进程组的概念
+进程组中有多个进程。其中有一个人组长
+默认的情况下，fork创建的子进程和父进程属于同组进程
+
+举例说明 使用waitpid(2)回收子进程的资源
+代码参见 waitpid.c
+
+三、在进程的空间了里加载新的映像
+系统使用exec家族的函数，来加载进程的映像。
+父进程调用fork(2)只是创建了子进程的空间，子进程和父进程的
+空间一致。需要使用一个新的映像代替原来的空间。执行新的程序
+映像。
+execve(2)
+#include <unistd.h>
+int execve(const char *filename, char *const argv[],)
+功能：
+参数：
+filename：可执行程序的文件名。可执行的二进制文件或者是脚本
+            文件。
+argv：传递给可执行程序的参数。根据规范，可执行文件名字放在
+        字符串列表的第一位。
+envp：传给新程序的环境变量的列表。
+返回值：
+成功     不返回
+-1 错误  errno被设置
+
+int main(int argc, char *argv[], char *envp[])
+
+
+#include <unistd.h>
+extern char **environ;
+int execl(const char *path, const char *arg, .../* (char  *) NULL */);
+int execlp(const char *file, const char *arg, .../* (char  *) NULL */);
+int execle(const char *path, const char *arg, .../*,  (char  *)  NULL, char  *  const envp[] */);
+int execv(const char *path, char *const argv[]);
+int execvp(const char *file, char *const argv[]);
+int execvpe(const char *file, char *const argv[],char *const envp[]);
+
+exec  相同
+l   列表 将字符串列表中的数据一条一条的列出来。
+v   向量表  将字符串列表的首地址传给函数。
+p   到PATH指定的路径去找要加载的可执行程序。
+e   环境变量  默认情况下，子进程继承父进程的环境变量。如果用户想用自己
+    指定的环境变量替代父进程的环境变量，就需要使用e。
+
+举例说明   使用exec(2)家族函数加载可以执行文件的映像到子进程的虚拟地址
+              空间里。然后执行新的程序。
+执行的新的程序是
+ps -o pid,ppid,pgid,comm
+ugo@ubuntu:~/Desktop/Tedu old/day0707-Uc$ ps -o pid,ppid,pgid,comm
+   PID   PPID   PGID COMMAND
+  9479   9053   9479 bash
+ 10563   9479  10563 ps
+
+代码参见 exec.c
+
+举例说明 在exec函数中，环境变量的使用 代码参见 execvpe.c
+
+当在bash下执行一个程序的时候。bash首先fork创建子进程，再执行exec(2)
+家族里的函数，将新的可执行程序的映像加载到子进程的地址空间里，将原来的
+地址空间覆盖（重写）。代码段、数据段、bss、stack都覆盖掉原来的。
+
+bash有两种命令  内部命令  外部命令
+外部命令就是和bash不是同一个可执行文件的命令。
+内部命令的实现代码在bash可执行程序中。这样的命令称为内部命令。
+外部命令的执行需要bash，先fork，在exec。跟bash是两个不同的进程。
+而内部命令的执行，只是在bash进程中执行，不用fork。...
+跟bash是同一个进程。
+
+如何区别bash的内部命令和外部命令？
+type COMMAND
+
+四、环境变量
+默认的情况下，子进程从父进程继承环境变量。
+在程序中如何操作环境变量？
+1、环境变量的遍历
+在linux系统中维护了一个环境变量的列表。
+environ 是全局变量，这个变量记录了环境变量列表的首地址。
+在列表中结尾处是一个NULL。
+
+举例说明，在一个进程中打印所有的环境变量。
+代码参见，myenv.c
+
+编写代码实现环境变量的输出  代码参见 myenv1.c
+
+1、环境变量的操作
+name=value
+getenv(3)
+#include<stdlib.h>
+char *getenv(const char *name);
+功能：获取环境变量的值
+参数：
+name 指定环境变量的名字
+返回值：
+找不到  返回NULL
+返回环境变量值的首地址。
+
+举例说明  环境变量的操作
+代码参见 env_op.c
+
+设置环境变量的值
+putenv(3)
+#include <stdlib.h>
+int putenv(char *string);
+功能：改变或者添加一个环境变量
+参数：
+string：name=value  如果name不存在，将环境变量添加到环境变量列
+                          表中。如果存在，将环境变量的值改为value
+返回值：
+0 成功
+非0 错误
+
+setenv(3)
+#include <stdlib.h>
+int setenv(const char *name, const char *value, int overwrite);
+功能：增加或者改变环境变量的值
+参数：
+name：指定了环境变量的名字
+value：指定环境变量的值
+overwrite：如果环境变量已经存在，这个标记被设置为0的时候代表不改变环境变
+             量的值。非0改变环境变量
+返回值：
+0 成功
+-1 错误 errno被设置
+
+
+int unsetenv(const char *name);
+功能：删除环境变量
+参数：
+name：指定要删除的环境变量的名字
+返回值：
+0 成功
+-1 错误 errno被设置
+
+clearenv(3)
+#include<stdlib.h>
+int clearenv(void);
+功能：清除环境变量
+参数：
+void
+返回值：
+0  成功
+非0 错误
+

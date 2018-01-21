@@ -1,0 +1,236 @@
+今天内容：
+一、静态库文件的制作和使用
+在C 语言中函数库 存放函数的仓库
+C++和JAVA中是 类库
+
+静态库--在链接的时候，采用静态链接的方式链接静态库中的函数
+静态库文件的命名规则：
+ lib+库名.a
+补骤：
+1、将需要加入到库中的文件编译为目标文件
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC/tmath$ ls
+tadd.c  tmath.h  tmul.c
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC/tmath$ gcc -c *.c
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC/tmath$ ls
+tadd.c  tadd.o  tmath.h  tmul.c  tmul.o
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC/tmath$ 
+
+2、将目标文件打包到库文件中
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC/tmath$ ar -r libpmath.a *.o
+ar: 正在创建 libpmath.a
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC/tmath$ ls
+libpmath.a  tadd.c  tadd.o  tmath.h  tmul.c  tmul.o
+
+
+3、使用静态库文件链接程序为可执行文件
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC$ gcc main.c -L ./tmath/ -lpmath
+
+-L路径     库文件在文件系统中的路径
+-l库名     指定链接的库名 
+-I头文件搜索路径     将这个路径添加到系统指定的头文件的搜索路径
+-v         先是编译详情
+
+使用的案例为tmath
+
+动态库的命名规则：
+ lib库名.a
+
+二、环境变量的初识
+什么是环境变量？
+就是系统为程序运行提供的环境。有些环境需要使用变量的方式传递给可执行程序，这样的变量就是环境变量。
+
+bash下提供的环境变量。
+如何查看环境变量？
+env命令：
+环境变量的格式：
+name=value
+'='的两边不允许出现空格。
+例，
+USER=tarenan
+
+如何查看某个环境变量的值？
+echo $USER
+
+如何定义一个变量？这个变量是当前bash私有的变量，也称为这个bash的自定义变量。
+name=value
+
+env|grep name
+env 显示当前bash的所有环境变量
+grep 字符串 文件名。 在文件内显示包含字符串的所有行   
+
+如何将自定义变量转换为环境变量？
+export 定义变量的名字
+
+export 变量的名字=变量的值
+
+两个环境变量的使用 PATH    PS1
+PS1环境变量：控制提示符。
+export PS1="\W\$"
+
+～当前用户的工作主目录
+
+所有的bash在启动的时候，都有一个配置文件。这个配置文件是~/.bashrc  shell脚本文件。
+
+在配置文件的最后一行添加 export PS1="\W\$"。那么以后启动的所有bash都会执行这句话。
+更多的提示符信息，查看《鸟哥的私房菜》
+
+环境变量 PATH 
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC$ echo $PATH
+/home/ugo/bin:/home/ugo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PATH环境变量的内容：
+很多路径，路径之间是冒号分割开的。
+当在bash下输入linux命令的时候，会到PATH指定的路径下查找这个命令的程序。
+
+./a.out
+.当前路径    执行当前路径下的a.out程序。
+a.out
+需要将当前路径添加到PATH环境变量里。
+export PATH=$PATH:.
+把上面这句话添加到 ~/.bashrc文件的最后一行。
+
+三、动态库的制作和使用
+动态库命名规范：lib库名.so
+步骤分为三步：
+1、先将源文件编译为与位置无关的目标代码。
+go@ubuntu:~/Desktop/Tedu old/day0630-UC/tmath$ gcc -fPIC -c *.c
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC/tmath$ ls
+tadd.c  tadd.o  tmath.h  tmul.c  tmul.o
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC/tmath$ 
+
+注意参数   -fPIC  编译生成的代码与位置无关。
+
+2、将编译后的目标文件打包为动态库文件
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC/tmath$ gcc -shared -o libpmath.so *.o
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC/tmath$ ls
+libpmath.so  tadd.c  tadd.o  tmath.h  tmul.c  tmul.o
+
+3、将源文件编译链接的时候直接使用动态库链接成可执行文件
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC$ gcc main.c -Ltmath -lpmath
+
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC$ a.out 
+a.out: error while loading shared libraries: libpmath.so: cannot open shared object file: No such file or directory
+
+在链接的时候有链接器。
+加载器。将可以执行文件加载到内存中。
+在将可执行文件加载到内存中的时候需要检测这个可执行文件依赖哪些文件？
+ldd  可执行文件   用来查看可执行文件依赖的库文件。
+
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC$ ldd a.out 
+	linux-vdso.so.1 =>  (0x00007ffc0d7ba000)
+	libpmath.so => not found
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f5a10aea000)
+	/lib64/ld-linux-x86-64.so.2 (0x000055cc72683000)
+要解决这个 问题，怎么办？
+让加载器找到这个文件。
+4种方法可以让加载器知道。（我们只讲2种）
+
+1、通过环境变量LD_LIBRARY_PATH告知加载器，动态库文件所在路径。
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:tmath
+使用后如下：
+ugo@ubuntu:~/Desktop/Tedu old/day0630-UC$ ldd a.out 
+	linux-vdso.so.1 =>  (0x00007fffb2495000)
+	libpmath.so => tmath/libpmath.so (0x00007f4a4a448000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f4a4a066000)
+	/lib64/ld-linux-x86-64.so.2 (0x000055c49816d000)
+
+2、不管是加载器还是连接器，他们的默认的路径是/usr/lib或者/lib。
+gcc main.c -lpmath
+
+动态库和静态库的区别：
+链接的时候，如果是静态库，静态链接。
+如果是动态库就是动态库链接。
+
+使用静态库链接生成的可以执行文件，不再需要静态库了。文件的尺寸比较大。
+动态库链接生成的可以执行文件，依然依赖于动态库。文件尺寸比较小。再者，动态库的函数可以共享。
+
+
+
+四、动态加载
+动态加载就是在程序员需要的时候，向系统申请加载某个动态库。
+系统为动态加载提供了以下函数：
+dlopen(3)
+#include <dlfcn.h>
+
+void *dlopen(const char *filename, int flags);
+功能：加载动态库
+参数：
+filename：指定了要加载的动态库文件的名字
+flag：
+RTLD_LAZY：懒加载  懒绑定 只有在执行到这个函数的时候，才绑定
+RTLD_NOW：立即加载
+返回值：
+失败 返回NULL
+正确 返回一个地址 handle
+
+char *dlerror(void);
+功能：返回最近调用dlopen、dlclose、dlsym产生的错误信息
+参数：void
+返回值：
+NULL    没有错误产生
+非NULL  返回一个描述错误的字符串。
+
+void *dlsym(void *handle,const char *symbol);
+功能：获取symbol加载到内存里的地址。
+参数：
+handle：dlopen(3)的返回值
+symbol：指定了函数的名字
+返回值：
+NULL   说明symbol没有找到
+返回symbol的装载到内存里的地址
+
+int dlclose(void *handle);
+功能：让动态库的引用计数减1
+参数：
+handle：指定了要关闭的动态库的handle。dlopen(3)的返回值。
+返回值：
+0   正确
+非0 错误
+
+Link with -ldl.
+
+举例说明  动态加载函数的使用
+代码参见dynamic.c
+
+五、C程序中的错误处理
+系统提供了一个全局变量，用来记录系统调用和库函数执行的错误编号。这个全局变量是errno。
+perror(3)
+strerror(3)
+
+演示错误   以文件操作为例。
+fopen
+fclose
+代码参见file.c
+
+#include<errno.h>
+
+void perror(const char *s);
+功能：打印
+参数：
+s：指定要打印的字符串
+返回值：无
+标准输入：    stdin  默认：键盘
+标准输出：    stdout 默认：显示器
+标准错误输出  stderr 默认：显示器
+
+总结：
+一、静态库的制作和使用
+二、环境变量
+三、动态库的制作和使用
+四、动态加载
+五、系统中的错误处理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

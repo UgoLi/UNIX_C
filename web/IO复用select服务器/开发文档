@@ -1,0 +1,30 @@
+一、写一个头文件用于web服务器的实现
+web.h 
+
+二、调试版本的web服务器
+主体 webserver.c 
+封装web相关的函数 web.c
+服务器器端监听：t_listen
+doit:将客户端请求输出到显示器
+
+三、在doit里解析浏览器发送的信息
+编写http.conf配置服务器信息，格式如下：
+    - port 8080
+    - workdir /www/var/
+
+get_request 获取请求头信息，放入结构体request_t
+org_respond 组织回应信息,放入结构体respond_t
+do_respond  做出回应，根据回应信息的code，分为错误回应和正确回应
+
+
+四、子进程实现服务器并发，利用信号处理函数异步回收子进程
+
+五、select实现服务器IO复用(系统中断信号未处理)，shutdown关闭服务器连接描述符写端
+
+
+
+
+
+
+
+

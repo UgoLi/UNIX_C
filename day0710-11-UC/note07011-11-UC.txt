@@ -1,0 +1,168 @@
+回忆昨天的内容
+一、信号的产生
+二、信号的阻塞和未决信号
+三、pause(2)挂起等待任意信号
+四、信号的产生到捕获的过程。
+可重入函数，只能反问自己栈帧的内容
+
+今天的内容：
+一、作业控制
+什么是作业？
+进程组
+作业
+运行在前台称为前台作业，只有一个作业可以运行于前台
+运行在后台的称为后台作业，可以有多个。后台作业不接受终端的输入。
+使用快捷键发送信号，只能发送给前台作业。
+
+ctrl+z
+如何查看后台作业？
+jobs
+将后台切换到前台
+fg  %+作业号
+让作业在后台运行
+bg %+作业号
+让作业启动的时候，就到后台运行。
+command&
+
+子进程在终止的时候，给父进程发送SIGCHLD信号
+
+
+二、使用setitimer(2)实现计时器
+系统维护着三个计时器。
+#include <sys/time.h>
+int getitimer(int which, struct itimerval *curr_value);
+int setitimer(int which, const struct itimerval *new_value,
+                     struct itimerval *old_value);
+功能：设置timer的间隔值
+参数：
+which：
+ITIMER_REAL:SIGALRM
+ITIMER_VIRTUAL:SIGVTALRM
+ITIMER_PROF:SIGRPOF
+new_value：计时器新值存放地址
+old_value：计时器旧值存放地址
+返回值：
+0  成功
+-1 错误   errno被设置
+
+
+struct itimerval{
+    struct timeval it_interval;/*next value*/间隔值
+    struct timeval int_value;/*current value*/初始值
+};
+struct timeval{
+    long tv_sec;/*seconds*/
+    long tv_usec;/*microseconds*/
+};
+
+举例说明   代码参见   timer.c
+
+信号结束
+
+
+三、system v  ipc
+消息队列
+共享内存
+信号量集
+三种类型的对象，是创建在内核空间里。如果用户不手动的去删除这些对象一直
+在操作系统里存在，只有在操作系统关闭的时候，这些对象才消失。
+这些对象在内核里，每个对象都有自己的id，方便操作系统通过对象的id管理
+这些对象。但是这些对象的id只能在内核态看到，在用户态看不到。
+用户态获取这些对象的id。在用户态获取到这对象的id，我们就可以在用户态
+操作这些对象，实现进程间的通讯。
+
+如何 查看操作系统里的这些对象？
+ipcs(1)命令
+
+在用户态创建一个唯一的值，使用这个值来获取内核里的对象的id。这个
+值我们称为键值。
+ftok(3)
+#include <sys/types.h>
+#include <sys/ipc.h>
+key_t ftok(const char *pathname, int proj_id);
+功能：转换pathname和proj_id为system V IPC key
+参数：
+pathname：指定一个有效的文件名。
+proj_id：取proj_id的有效低8位。
+返回值：
+成功  返回key值
+-1  错误  errno被设置
+
+举例说明  使用ftok(3)  代码参见ftok.c
+ 
+msgget(2)   获取消息队列的id
+semget(2)   获取信号量集的id
+shmget(2)   获取共享内存的id
+
+#include <sys/types.h>
+#include <sys/types.h>#include <sys/ipc.h>
+#include <sys/types.h>#include <sys/msg.h>
+#include <sys/types.h>int msgget(key_t key, int msgflg);
+#include <sys/types.h>功能：获取一个消息队列的id
+#include <sys/types.h>参数：
+#include <sys/types.h>key;跟消息队列的id绑定在一起的key值。ftok(3)的返回值。
+msgflg：
+如果 在这个参数中指定了IPC_CREAT，跟key值的消息队列不存在的情况下，
+创建一个 新的消息队列。这个消息队列和key值绑定。
+如果IPC_EXCL和IPC_CREAT   一起指定，要创建的消息队列已经存在的情况下，
+报错。如果消息队列不存在，创建新的消息队列。
+
+最低有效位指定了消息队列的权限。
+返回值：
+返回消息队列的id
+-1 错误  errno被设置
+
+将msgget(2)的使用添加到ftok.c中，同时创建一个消息队列
+到目前为止，已经能获取到消息队列的id。就需要使用id，向消息队列中发送
+数据或从消息队列获取数据。
+
+msgsnd(2)
+msgrcv(2)
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/msg.h>
+int msgsnd(int msqid, const void *msgp, size_t msgsz, int msgflg);
+功能：将消息追加到这个消息队列中
+参数：
+msqid：指定了消息队列的id。将消息追加到这个消息队列中
+msgp：指向 msgbuf结构体变量的地址
+msgsz：指定了参数msgp结构体中的mtext的大小
+msgflg：
+空间不够的时候
+IPC_NOWAIT  非阻塞
+0           阻塞
+返回值：
+0   成功
+-1  错误 errno被设置
+
+ssize_t msgrcv(int msqid, void *msgp, size_t msgsz, long msgtyp,
+                    int msgflg);
+功能：
+参数：
+msqid：指定了消息队列的id。从这个消息队列中获取消息
+msgp：指向 了存放消息的缓冲区的地址。
+msgsz：指定了参数msgp结构体中的mtext的大小
+msgtyp：指定了消息的类型
+msgflg：
+MSG_NOERROR（多余部分，截断，丢失）  缓冲区尺寸不足的时候考虑
+IPC_NOWAIT  非阻塞，消息队列中没有请求类型的消息，立即返回，错误
+0           阻塞，没有消息，等待，无返回。
+返回值：
+成功  返回实际从消息队列拷贝到mtext数组中的字节数。
+-1  错误  errno被设置
+struct msgbuf {
+    long mtype;       /* message type, must be > 0 */
+    char mtext[1];    /* message data */           
+};
+char mtext;      仅仅是变量
+char mtext[1];   可变长数组，通过内存分配变长
+struct msgbuf *p=malloc(sizeof(struct msgbuff)+252);
+strcpy(p->mtext,"this is a test\n");
+
+举例说明  使用消息对列实现进程间通讯
+代码参见  msgA.c  msgB.c
+
+
+
+
+

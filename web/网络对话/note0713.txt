@@ -1,0 +1,242 @@
+回忆：
+一、消息队列  实验
+二、共享内存 
+三、网络基础
+IP分类
+
+
+今天内容：
+一、网络基础
+IP 网络号   主机号  
+在网络通讯中需要知道网络号。如何获取iP的网络号？
+子网掩码
+192.168.1.130/24==========192.168.1.130   255.255.255.0
+192.168.1.0   网络号
+
+192.168.1.130/25==========192.168.1.130   255.255.255.128
+192.168.1.128
+
+如何测试两台机器的网络连接是否正常
+命令ping + IP地址
+
+查看arp表的内容
+sudo arp -a
+
+内核IP路由表
+命令 sudo route
+内核 IP 路由表
+目标            网关            子网掩码        标志  跃点   引用  使用 接口
+default         bogon           0.0.0.0         UG    100    0        0 ens33
+link-local      *               255.255.0.0     U     1000   0        0 ens33
+192.168.9.0     *               255.255.255.0   U     100    0        0 ens33
+
+127.0.0.1    环回地址  测试本机的网络通讯设备是否正常。
+ping 127.0.0.1
+
+跨网段通讯
+
+
+二、基础tcp的网络编程
+传输层有两个重要的协议   TCP/UDP  
+基于TCP的网络编程
+客户端和服务器端需要建立网络连接
+"三次握手、四次分手"
+
+服务器端    
+1、创建一个socket通讯端点
+socket(2)***********************************************************************
+#include <sys/types.h>          /* See NOTES */
+#include <sys/socket.h>
+    int socket(int domain, int type, int protocol);
+    功能：创建通讯端点，虚拟的设备-->文件-->文件描述符
+    参数：
+    domain：
+    AF_INET    IPv4 Internet protocol   ip(7)
+    AF_INET6   Ipv6 Internet protocol   ipv6(7)
+    ......
+    type：
+    SOCK_STREAM: 基于连接  的字节流。
+    SOCK_DGRAM:支持数据包的。不是基于连接的。
+    ......
+    protocol：
+    一个类型对应一个协议家族,则选择0
+    返回值：
+    -1  错误  errno被设置
+    返回有一个新最小的文件描述符。
+*****************************************************************************
+2、将通讯端点和服务器的IP地址和端口号绑定
+bind(2)**********************************************************************
+#include <sys/types.h>
+#include <sys/socket.h>
+    int bind(int sockfd,const struct sockaddr *addr, socklen_t addrlen);
+     功能：给socket绑定一个名字
+     参数：
+    sockfd：指定了通讯端点的文件描述符
+    addr：指定了服务器的ip地址和端口号
+    addrlen：指定了addr结构体的长度
+    返回值：
+    0   成功
+    -1  错误  errno被设置
+*****************************************************************************
+struct sockaddr    ？
+
+3、监听客户端的连接，如果有连接的到来，放到一个队列中。
+listen(2)**********************************************************************
+#include<sys/types.h>
+#include <sys/socket.h>
+    int listen(int sockfd, int backlog);
+    功能：监听连接
+    参数：
+    sockfd：指定的socket的文件描述符（必须是SOCK_STREAM)
+    backlog：最大未决连接数，允许监听到队列未处理的最大数量
+    返回值：
+    0  成功
+    -1 错误  errno被设置
+*****************************************************************************
+while(1){
+    4、阻塞等待客户端连接的到来。
+accept(2)********************************************************************
+#include <sys/types.h>
+#include <sys/socket.h>
+    int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
+    功能：在指定的socket上接受连接。处理一个连接
+    参数：
+    sockfd：指定socket。未决连接属于这个socket。
+    addr：如果addr是NULL，那么addrlen也设置为NULL。用来存储客户端的地址。
+            函数需要的是一个，-通用格式，
+            但实际中需要的是具体的格式。格式后边介绍。
+    addrlen：值-结果参数，用来带回addr的具体的尺寸。
+    返回值：
+    -1   错误  errno被设置
+    0   返回一个用于连接客户的连接描述符
+*****************************************************************************
+    5、获取客户端数据-->处理数据-->响应客户端
+            read(2)
+            write(2)
+    6、关闭本次连接
+            close(2)
+}
+
+补充：
+在bind(2)、aceept(2)函数中使用了通用地址结构。
+通用地址结构
+struct sockaddr{
+    sa_family_t sa_family;
+    char        sa_data[14];
+}
+
+具体地址结构  man in.h
+#include<netinet/in.h>
+in_port_t-->     uint16_t
+in_addr_t-->     uint32_t 
+sa_family_t  <-- <sys/socket.h>
+
+struct in_addr{
+    in_addr_t s_addr;
+};
+
+Ipv4 
+structure sockaddr_in{
+    sa_family_t sin_family;    //AF_INET.
+    in_port_t   sin_po2rt;      //Port number.
+    struct in_addr  sin_addr;  //IP address.
+};
+ip地址    用户看到的是点分十进制的字符串。
+系统需要的是无符号的长整形的数字。
+字符串和整型整数  相互转换。
+inet_ntop(3)*************************************************************
+#include <arpa/inet.h>
+    const char *inet_ntop(int af, const void *src,char *dst, socklen_t size);
+    功能：二进制到text格式
+    参数：
+    af：AF_INET 或者 AF_INET6
+    src：成员struck in_addr的地址。
+    dst：非空的存放结果字符串的首地址。
+    size：给定了dst空间的大小
+    返回值：
+    NULL 错误  errno被设置
+    返回非空的字符串
+*************************************************************************
+
+
+inet_pton(3)*************************************************************
+#include <arpa/inet.h>
+    int inet_pton(int af, const char *src, void *dst);
+    功能：将ip地址从字符串格式转换为二进制格式
+    参数：
+    af：AF_INET或者AF_INET6
+    src：字符串格式的ip地址
+    dst：拷贝网络地址结构到dst内存中。struck in_addr.
+    返回值：
+    1   成功
+    0   指定的地址无效
+    -1  af指定的地址家族不对，错误，errno被设置。  
+*************************************************************************
+Ipv6
+structure sockaddr_in6{
+    
+};
+
+主机字节序(通常是小端)<---->网络字节序(必须是大端)
+#include <arpa/inet.h>
+uint32_t htonl(uint32_t hostlong);
+uint16_t htons(uint16_t hostshort);
+uint32_t ntohl(uint32_t netlong);
+uint16_t ntohs(uint16_t netshort);
+to
+n  net
+h  host
+l  long
+s  short
+
+编写代码实现   服务器端程序。
+功能要求，在接受到客户端的数据以后，将客户端的数据转换为打写，然后将转换
+后的结果返回给客户端。
+代码参见 server.c
+
+客户端
+1、创建socket
+socket(2)
+2、将这个socket和服务器连接
+connect(2)********************************************************************
+#include <sys/types.h>          /* See NOTES */
+#include <sys/socket.h>
+    int connect(int sockfd, const struct sockaddr *addr,socklen_t addrlen);
+    功能：建立sockfd到addr的连接
+    参数：
+    sockfd：socket(2)的返回值
+    addr：服务器的ip地址和端口号
+    addrlen：指定了addr地址的空间大小
+    返回值：
+    0   成功
+    -1  错误  errno被设置
+******************************************************************************
+
+while(1){
+    3、向服务器端发送数据
+             write(2)
+    4、等待服务器响应消息
+            read(2)
+    5、对响应信息处理
+
+}
+6、关闭连接，结束本次通讯
+close(2)
+
+总结：
+一、网络基础知识
+子网掩码
+二、基于tcp的网络编程
+客户端  服务器端
+三次握手  基于连接
+服务器端编程模型
+
+
+
+
+
+
+
+
+
+

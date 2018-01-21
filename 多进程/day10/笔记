@@ -1,0 +1,190 @@
+回忆昨天内容：
+一、进程的基础
+二、进程的创建
+三、进程的退出
+exit(3) _exit(2)   atexit(3)  on_exit(3)
+
+四、进程退出的时候，使用wait(2)回收子进程的资源。
+
+今天内容：
+一、环境变量
+bash下的环境变量。
+每个进程都默认从父进程继承环境变量
+bash本身就是一个程序，这个程序运行的时候，bash进程
+可以定义只能之自己这个进程中使用的变量，这种变量称为自定义变量。
+用户可以使用
+export 环境变量的名字
+将自定义变量变为环境变量。环境变量可以被子进程继承。
+
+如何使用程序访问环境变量？
+系统维护着一个全局变量   extern char **environ;
+这个全局变量的名字就是环境变量列表的首地址。
+借用这个全局变量，遍历环境变量列表。
+代码参见   trav_l.c
+
+int main()
+int main(void)
+int main(int argc,char *argv[])
+int main(int argc,char *argv[],char *envp[])
+使用int main(int argc,char *argv[],char *envp[])遍历环境变量的列表。代码参见trav_l1.c
+
+操作环境变量的函数
+getenv(3)
+#include <stdlib.h>
+char *getenv(const char *name);
+功能：获取环境变量的值
+参数：
+name：指定了环境变量的名字
+返回值：
+找不到为NULL
+返回环境变量值字符串的首地址
+
+环境变量的操作   代码参见   env_op.c
+
+putenv(3)
+#include <stdlib.h>
+int putenv(char *string);
+功能：增加或改变环境变量的值
+参数：
+string:name=value格式。如果name不存在，增加到环境变量列表。
+如果存在，将环境变量的值改为value。
+返回值：
+成功0    非0 失败
+
+setenv(3)
+ #include <stdlib.h>
+int setenv(const char *name,const char *value,int 			overwrite);
+功能：增加或改变一个环境变量
+参数：
+name：指定环境变量的名字
+value：指定环境变量的值
+overwrite：如果环境变量存在，overwrite设置为非0，改变环境变量的值为value；如果overwrite设置为0，环境变量的值不改变。
+
+返回值：
+0   成功
+-1  错误  errno被设置
+
+int unsetenv(const char *name);
+功能：删除环境变量
+参数：
+name：指定了要删除的环境变量
+返回值：
+0   成功
+-1  错误  errno被设置
+clearenv(3)
+
+二、加载新的映像
+使用新的映像替换旧的映像。
+加载新的映像使用execve(2)家族的函数
+#include <unistd.h>
+int  execve(const  char  *filename, char *const argv[],
+                  char *const envp[]);
+功能：执行程序
+参数：
+filename：指定了要执行的程序。必须是可执行文件
+argv：是传递给程序的参数。相当于命令行参数的传递
+envp:是传递给程序的环境变量
+
+返回值：
+-1    错误  errno被设置
+成功   不返回。
+
+execl(3)
+#include <unistd.h>
+int execl(const char *path,  const  char *arg, ...);
+int execlp(const char *file, const char *arg, ...);
+int execle(const char *path, const  char *arg,
+                  ..., char * const envp[]);
+
+int execv(const char *path, char *const argv[]);
+int execvp(const char *file, char *const argv[]);
+int execvpe(const   char  *file,  char *const argv[],
+                  char *const envp[]);
+
+l：需要将argv数组中的每个元素罗列出来，传给函数
+v：传递的是指针数组的首地址
+p:PATH环境变量。如果带p,到PATH环境变量指定的路径下找命令。如果不带p，必须告诉程序可执行文件的路径。   
+e:如果带e，可以在程序加载的过程中设定环境变量。如果不带e。代表新的进程默认继承父进程的环境变量。
+
+
+day10$ps -o "pid,ppid,pgrp,comm"
+  PID  PPID  PGRP COMMAND
+19077 19066 19077 bash
+19885 19077 19885 ps
+
+
+
+举例说明   execve(2)的使用，加载新的映像。
+代码参见  execve.c
+
+举例说明  在子进程中加载新的映像。
+代码参见  exec_ps.c
+
+perl   
+bash
+python
+
+补充：
+在bash下键入a.out的时候，发生了什么？
+bash调用fork(2)创建子进程，然后使用exec(3)系列的函数将a.out的映像替换掉子进程从父进程继承下来的映像。这也是所有的bash外部命令运行的原理。
+
+bash运行环境下了，命令分为两种，一种是外部命令
+另一种是内部命令。
+如何查看一个命令是内部命令还是外部命令
+type 命令
+
+内部命令和外部命令的原理是什么？
+内部命令的实现在bash程序中，和bash属于同一个程序。在内部命令执行的时候，不需要创建子进程。内部命令的执行和bash是同一个进程。
+
+外部命令就是和bash不是同一个程序。执行外部命令的时候，就fork(2)  exec(3) 外部命令的执行和bash的执行不是同一个进程
+
+fork(2)和exec(3)的配合使用
+fork(2)只是创建了进程的空间。但是exec才更新了fork(2)出来的子进程映像。
+
+
+作业：
+自己编写代码实现bash的功能。编译生成可执行文件 psh。
+内部命令和外部命令
+cd             
+
+三、system(3)的使用
+#include <stdlib.h>
+int system(const char *command);
+功能：执行一个shell命令
+参数：
+command：指定了linux的shell命令
+返回值：
+错误  -1
+command的退出状态码。
+
+/bin/sh -c command
+
+bash---->fork----->fork--->fork
+         a.out      sh      ls
+bash--->fork
+	a.out ls
+
+举例说明  system(3)的使用   代码参见system.c
+编写代码实现延时功能  代码参见  delay.c
+
+四、文件输入重定向的实现
+利用学过的知识实现文件输入重定向的功能。
+编写代码 实现输入字符串，将字符串转换为大写，然后输出。
+代码参见  upper.c
+ctrl+d   EOF
+
+编写代码对upper.c进行封装，实现文件输入重定向的功能。
+代码参见  wrap.c
+
+总结：
+一、环境变量
+二、使用新的映像替换旧的映像
+三、system的使用
+四、文件输入重定向
+作业：
+
+
+
+
+
+

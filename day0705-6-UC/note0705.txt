@@ -1,0 +1,250 @@
+今天的内容：
+一、获取文件的元数据
+什么是文件的元数据？
+meta  其实就是文件的属性。而不是文件的内容。
+文件的元数据和文件的内容如何存储？
+struct inode。
+每个文件都有自己的inode。有且只有一个。
+一个inode可以对应一个或多个文件名。（内容一样）
+硬链接的两个文件有同一个inode。（硬链接数：权限后面的数字）
+如何建立文件的硬链接？
+ln hello hell 将hello和hell硬链接
+
+软链接的两个文件不是同一个inode。
+若A软链接到B，若A的名字不超过60个字节则存储在inode的数组区，否则存放到块中。
+如何建立文件的软链接？（好像快捷方式啊！）
+ln -s hell ff
+
+所有的硬链接文件的内容只有一份。
+最前边的字符表示文件的类型。
+- 普通文件
+b 块设备文件
+c 字符设备文件
+d 文件夹文件
+s soket文件 ？
+l 软链接文件 
+p 管道文件  ？
+
+系统提供了一个系统调用，用于获取文件的元数据。
+stat(2)
+       #include <sys/types.h>
+       #include <sys/stat.h>
+       #include <unistd.h>
+       int stat(const char *pathname, struct stat *buf);
+功能：获取文件的元数据
+参数：
+path：指定了文件的路径
+buf：文件的元数据填充到buff指定的地址空间
+返回值：
+0 成功
+-1 错误 errno被设置
+
+值-结果参数
+struct stat {
+                dev_t     st_dev;         /* ID of device containing file */
+                ino_t     st_ino;         /* inode number */
+                mode_t    st_mode;        /* protection */
+                nlink_t   st_nlink;       /* number of hard links */
+                uid_t     st_uid;         /* user ID of owner */
+                gid_t     st_gid;         /* group ID of owner */
+                dev_t     st_rdev;        /* device ID (if special file) */
+                off_t     st_size;        /* total size, in bytes */
+                blksize_t st_blksize;     /* blocksize for filesystem I/O */
+                blkcnt_t  st_blocks;      /* number of 512B blocks allocated */
+                /* Since Linux 2.6, the kernel supports nanosecond
+                    precision for the following timestamp fields.
+                    For the details before Linux 2.6, see NOTES. */
+                struct timespec st_atim;  /* time of last access */
+                struct timespec st_mtim;  /* time of last modification */
+                struct timespec st_ctim;  /* time of last status change */
+                #define st_atime st_atim.tv_sec      /* Backward compatibility */
+                #define st_mtime st_mtim.tv_sec
+                #define st_ctime st_ctim.tv_sec
+};
+
+举例说明  获取文件的元数据
+代码参见 mystat.c
+
+文件的时间是距离1970年1月1日的时间。
+需要将长整数转换成具体的日期格式。字符串格式。
+需要使用ctime(3)完成这个功能。
+#include <time.h>
+char *ctime(const time_t *timep);
+功能：将数值转换成字符串格式
+参数：
+timep：日历时间
+返回值：
+NULL 错误
+返回一个字符串
+
+需要将uid对应的用户名输出出来
+用户的信息记录在/etc/passed文件夹中。
+root:x:0:0:root:/root:/bin/bash 
+ugo:x:1000:1000:UgoPc,,,:/home/ugo:/bin/bash
+
+第一列是用户的名字
+第二列是用户的密码。（存放，/etc/shadow）
+第三列是用户的uid。
+第四列是用户的gid。
+第五列是用户的备注信息。
+第六列是用户的工作主目录。
+第七列是用户使用的shell。
+
+如何将uid转换为用户的名字？
+#include <sys/types.h>
+#include <pwd.h>
+struct passwd *getpwuid(uid_t uid);
+功能：获取passwd文件中的一条信息
+参数：
+uid：指定用户的uid。
+返回值：
+NULL 错误发生或或者没有找到匹配的条目。如果错误。errno被设置。
+返回一个地址。mZ                                              by all filesystem types */
+               char           d_name[256]; /* filename */
+           };
+    char   *pw_dir;        /* home directory */
+    char   *pw_shell;      /* shell program */
+};
+如何将组id转换为组名？
+组的信息存放在/etc/group文件中。
+root:x:0:
+ugo:x:1000:
+第一列是组名
+第二列是密码
+第三列是组id
+第四列是组的成员列表
+如何通过组id获取组的名字。
+#include <sys/types.h>
+#include <grp.h>
+struct group *getgrgid(gid_t gid);
+功能：获取一条组信息
+参数：
+gid：指定的gid，就是将这个gid对应的组信息提取出来
+返回值：
+NULL  没有找到匹配的条目或者信息，如果是错误。errno被设置。
+返回一个地址。
+
+struct group {
+               char   *gr_name;        /* group name */
+               char   *gr_passwd;      /* group password */
+               gid_t   gr_gid;         /* group ID */
+               char  **gr_mem;         /* NULL-terminated array of pointers to names of group members */
+           };
+
+
+mode       100664    10代表文件的类型
+
+
+二、对文件夹的操作
+drwxrwxr-x 2 ugo ugo  4096 7月   8 10:08 ts
+
+r读  w写  x通过
+文件夹的内容是什么？
+文件夹的内容   就是文件夹中的文件或者文件夹。
+
+如何在程序中访问文件夹？
+opendir(3)、closedir(3)、readdir(3)
+
+opendir(3)
+#include <sys/types.h>
+#include <dirent.h>
+DIR *opendir(const char *name);
+PS：DIR 结构体，透明的
+功能：打开一个文件夹
+参数：
+name：指定了文件夹的名字
+返回值：
+NULL 错误，errno被设置
+返回一个文件夹流的地址。
+
+closedir(3)
+#include <sys/types.h>
+#include <dirent.h>
+int closedir(DIR *dirp);
+功能：关闭一个文件夹流
+参数：
+dirp：是opendir(3)的返回值
+
+返回值：
+0  成功
+-1 错误，errno被设置
+
+举例说明  文件夹操作。  代码参见  dir_op.c
+
+readdir(3)
+#include <dirent.h>
+struct dirent *readdir(DIR *dirp);
+功能：从一个文件夹读取数据
+参数：
+dirp：指定的文件夹流
+返回值：
+成功 返回一个地址
+NULL 到达文件的末尾或者是错误产生，如果错误产生，errno被设置。
+
+
+struct dirent {
+        ino_t          d_ino;       /* inode number */
+        off_t          d_off;       /* not an offset; see NOTES */
+        unsigned short d_reclen;    /* length of this record */
+        unsigned char  d_type;      /* type of file; not supported by\
+                                                all filesystem types */
+        char           d_name[256]; /* filename */
+};
+
+
+
+三、文件输出重定向的实现
+文件输入输出重定向。
+什么是重定向？
+改变文件的流向。
+
+如何复制文件描述符？
+dup(2)
+#include <unistd.h>
+int dup(int oldfd);
+功能：拷贝一份oldfd。
+参数：
+oldfd：源描述符
+返回值：
+成功 返回新的文件描述符，未使用的最小的文件描述符
+-1  错误，errno被设置。
+
+int dup2(int oldfd, int newfd);
+功能：拷贝文件描述符
+参数：
+oldfd：源描述符
+newfd：新的文件描述符
+返回值：
+成功 返回新的文件描述符，
+-1  错误，errno被设置。
+
+举例说明  编写代码实现文件的输出重定向。
+代码参见 direct.c
+
+
+
+总结：
+一、获取文件的元数据
+文件类型  文件权限  链接 日期
+二、文件夹的操作
+opendir(3)   closedir(3)   readdir(3)  
+三、文件输出重定向。
+dup(2)  dup2(2)  完成文件描述符的复制
+后续 文件输入重定向。
+
+
+作业解决： 判断自己机器的主机字节序。
+代码参见  big_little.c
+
+
+
+
+
+
+
+
+
+
+
+
+
